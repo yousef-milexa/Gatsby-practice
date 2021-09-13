@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: github
   branch: main
   repo: yousef-milexa/Gatsby-practice
 
@@ -7,33 +7,39 @@ media_folder: "static/assets"
 public_folder: assets
 
 collections:
-  - name: "content"
-    label: "Pages"
-    folder: "src/pages"
-    slug: "{{slug}}"
+  - name: "blog"
+    label: "Blog"
+    folder: "src/pages/archive"
+    slug: "{{year}}--{{month}}--{{day}}--{{slug}}"
     create: true
     editor:
       preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
       - {
           label: "Post Image",
           name: "featuredImage",
           widget: "image",
           allow_multiple: false,
         }
-      - { label: "Template Key", name: "templateKey", widget: "string" }
+      - { label: "Publish Date", name: "data", widget: "datetime" }  
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post" }
       - { label: "Body", name: "body", widget: "markdown" }    
-    - name: "content-1"
-      label: "page2"
-      folder: "src/pages/page-2.js"
-      slug: "{{slug}}"
-      create: true
-      editor:
-        preview: true
-      fields:
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Description", name: "description", widget: "string" }
-        - { label: "Template Key", name: "templateKey", widget: "string" }
-        - { label: "Body", name: "body", widget: "markdown" }
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/index.md"
+        label: "Landing Page"
+        name: "index"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+          - {label: Title, name: title, widget: string}
+          - {label: Subheading, name: subheading, widget: string}
+      - file: "src/pages/about/index.md"
+        label: "About"
+        name: "about"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
