@@ -28,7 +28,7 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
     }
     
-    const archives = results.data.allMarkdownRemark.edges
+    const archives = result.data.allMarkdownRemark.edges
     
     archives.forEach(({node}) => {
         createPage({
