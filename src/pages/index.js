@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 
 const IndexPage = ({location}) => (
   <Layout location={location}>
-    <Listing />
+    <h1>Home page</h1>
   </Layout>
 )
 
