@@ -1,5 +1,5 @@
 ---
-title: Our Fourth Post
+title: Our Fourth Posts
 description: Fourth post from Netlify CMS
 featuredImage: assets/gatsby-icon.png
 date: 2021-09-13T13:55:03.897Z
