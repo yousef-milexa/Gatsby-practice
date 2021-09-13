@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  branch: main
+  repo: yousef-milexa/Gatsby-practice
+
+media_folder: "static/assets"
+public_folder: assets
+
+collections:
+  - name: "content"
+    label: "Pages"
+    folder: "src/pages"
+    slug: "{{slug}}"
+    create: true
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - {
+          label: "Post Image",
+          name: "featuredImage",
+          widget: "image",
+          allow_multiple: false,
+        }
+      - { label: "Template Key", name: "templateKey", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }    
+    - name: "content-1"
+      label: "page2"
+      folder: "src/pages/page-2.js"
+      slug: "{{slug}}"
+      create: true
+      editor:
+        preview: true
+      fields:
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Description", name: "description", widget: "string" }
+        - { label: "Template Key", name: "templateKey", widget: "string" }
+        - { label: "Body", name: "body", widget: "markdown" }

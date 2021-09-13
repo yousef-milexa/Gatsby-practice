@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Project 1",
+        "author": "unknown",
+        "description": "some random project",
+        "link": {
+            "href": "https://vibrant-poincare-f9e451.netlify.com",
+            "text": "Go to project 1"
+        }
+    },
+    {
+        "name": "Project 2",
+        "author": "unknown",
+        "description": "some random project",
+        "link": {
+            "href": "https://vibrant-poincare-f9e451.netlify.com",
+            "text": "Go to project 2"
+        }
+    },
+    {
+        "name": "Project 3",
+        "author": "unknown",
+        "description": "some random project",
+        "link": {
+            "href": "https://vibrant-poincare-f9e451.netlify.com",
+            "text": "Go to project 3"
+        }
+    }
+]
