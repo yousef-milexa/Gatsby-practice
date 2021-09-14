@@ -17,6 +17,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
+      - { label: "Slug", name: "slug", widget: "string" }
       - {
           label: "Post Image",
           name: "featuredImage",
