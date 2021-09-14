@@ -13,6 +13,7 @@ exports.createPages = ({ actions, graphql }) => {
                 frontmatter {
                     slug
                 }
+                id
                 }
             }
             }
@@ -23,7 +24,7 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
     }
     
-    const archives = result.data.allMarkdownRemark.edges
+    const archives = result.data.allMarkdownRemark.edges;
     
     archives.forEach(({node}) => {
         createPage({
@@ -32,8 +33,20 @@ exports.createPages = ({ actions, graphql }) => {
             context: {
                 slug: node.frontmatter.slug,
             }
-        });
-    }) 
+        })
+    }); 
+
+    
+
+    result.data.allMarkdownRemark.edges.forEach(({ node: { slug, id } }) => {
+        createPage({
+            path: `/${slug}`,
+            component: path.resolve('./src/templates/default-page.js'),
+            context: {
+                id: id,
+            }
+        })
+    }); 
 })
 }
 
