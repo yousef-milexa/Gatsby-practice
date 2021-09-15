@@ -2,10 +2,23 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 
-export default function DefaultPageTemplate() {
-    return (
-        <Layout>
-            <h1>A page</h1>
-        </Layout>
-    )
-}
+const DefaultPageTemplate = () => (
+    <Layout>
+        <div>
+            <h2>title</h2>
+            <h3>description</h3>
+        </div>
+    </Layout>
+);
+
+export const DefaultPageTemplateQuery = graphql`
+    query DefaultPageTemplateQuery {
+        allSitePage {
+        edges {
+            node {
+            id
+            }
+        }
+        }
+    }
+`

@@ -10,12 +10,18 @@ exports.createPages = ({ actions, graphql }) => {
         allMarkdownRemark {
             edges {
                 node {
-                frontmatter {
+                    frontmatter {
                     slug
+                    }
                 }
-                id
                 }
             }
+            allSitePage {
+                edges {
+                node {
+                    id
+                }
+                }
             }
         }
 `).then(result => {
@@ -36,12 +42,12 @@ exports.createPages = ({ actions, graphql }) => {
         })
     }); 
 
-    
+    const DefaultPageTemplate = path.resolve(`src/templates/default-page.js`);
 
-    result.data.allMarkdownRemark.edges.forEach(({ node: { slug, id } }) => {
+    result.data.allSitePage.edges.forEach(({ node: {slug, id} }) => {
         createPage({
-            path: `/${slug}`,
-            component: path.resolve('./src/templates/default-page.js'),
+            path: `/${slug}/`,
+            component: DefaultPageTemplate,
             context: {
                 id: id,
             }

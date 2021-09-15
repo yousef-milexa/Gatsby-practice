@@ -1,3 +1,6 @@
+// const config = require(`config.json`); // netlify-cms config file (json format required)
+// const { createPluginPaths, createPluginOptions } = require('gatsby-source-netlify-cms');
+
 module.exports = {
   siteMetadata: {
     title: 'Level Up Blog',
@@ -32,6 +35,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `./src/templates/default-page.js`,
+        name: 'default-page',
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
         options: {
           plugins: [
@@ -61,12 +71,10 @@ module.exports = {
       },
     },
     // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     path: `${__dirname}/src/archive`,
-    //     name: 'archive',
-    //   },
+    //   resolve: "gatsby-source-netlify-cms",
+    //   options: createPluginOptions(config)
     // },
+    // ...createPluginPaths(config),
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-netlify`, 
   ],
