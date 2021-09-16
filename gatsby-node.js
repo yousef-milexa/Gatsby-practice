@@ -16,13 +16,14 @@ exports.createPages = ({ actions, graphql }) => {
                 }
                 }
             }
-            allSitePage {
+            allDatoCmsPage {
                 edges {
-                node {
-                    id
+                    node {
+                        id
+                        slug
+                    }
+                    }
                 }
-                }
-            }
         }
 `).then(result => {
     if (result.errors) {
@@ -44,7 +45,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     const DefaultPageTemplate = path.resolve(`src/templates/default-page.js`);
 
-    result.data.allSitePage.edges.forEach(({ node: {slug, id} }) => {
+    result.data.allDatoCmsPage.edges.forEach(({ node: { slug, id } }) => {
         createPage({
             path: `/${slug}/`,
             component: DefaultPageTemplate,

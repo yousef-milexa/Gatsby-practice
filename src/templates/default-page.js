@@ -12,13 +12,14 @@ const DefaultPageTemplate = () => (
 );
 
 export const DefaultPageTemplateQuery = graphql`
-    query DefaultPageTemplateQuery {
-        allSitePage {
-        edges {
-            node {
-            id
-            }
+query DefaultPageTemplateQuery($id: String!) {
+    datoCmsPage(id: {eq: $id}) {
+        heading
+        seoMetaTags {
+            tags
         }
+        text
         }
     }
+    
 `
