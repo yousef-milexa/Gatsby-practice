@@ -8,7 +8,6 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import Archive from './archive'
-import './layout.css'
 
 const MainLayout = styled.main`
   max-width: 90%;
