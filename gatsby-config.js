@@ -1,5 +1,6 @@
-// const config = require(`config.json`); // netlify-cms config file (json format required)
-// const { createPluginPaths, createPluginOptions } = require('gatsby-source-netlify-cms');
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
   siteMetadata: {
@@ -14,6 +15,14 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.READ_ONLY_TOKEN,
+        preview: false,
+        disableLiveReload: false,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -70,12 +79,6 @@ module.exports = {
         name: 'images',
       },
     },
-    // {
-    //   resolve: "gatsby-source-netlify-cms",
-    //   options: createPluginOptions(config)
-    // },
-    // ...createPluginPaths(config),
-    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-netlify`, 
   ],
 }
