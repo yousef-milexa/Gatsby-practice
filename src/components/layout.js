@@ -8,6 +8,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import Archive from './archive'
+import Footer from './Footer'
 
 const MainLayout = styled.main`
   max-width: 90%;
@@ -68,6 +69,7 @@ const Layout = ({ children, location }) => (
           <div>{children}</div>
           <Archive />
         </MainLayout>
+        <Footer />
       </>
     )}
   />
