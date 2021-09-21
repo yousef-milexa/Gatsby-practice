@@ -10,7 +10,7 @@ import {
 import { flag0, flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9,
     secure1, secure2, secure3, secure4, secure5, secure6, secure7, secure8, secure9, 
     HoviaWhite, Insta, Pint, TrustPilot } from "../images/assets/images";
-import { useStaticQuery } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 
 
 const StyledFooter = styled.footer`
@@ -81,6 +81,7 @@ const StyledLinks = styled.div`
 
 const StyledLink = styled.div`
     ${maxBreakpointQuery.tiny`
+        display: grid;
         grid-template-columns: 1fr 1fr;
     `};
 `;
@@ -139,6 +140,14 @@ const ComBox = styled.div`
     padding: 16px 16px 16px 16px;
 `;
 
+const ComBoxTitle = styled.h3`
+    
+`;
+
+const ComBoxInfo = styled.p`
+
+`;
+
 const List = styled.li`
     list-style: none;
     padding-bottom: 8px;
@@ -174,7 +183,7 @@ const PolicyList = styled.div`
     };
 `;
 
-const BusinessInfo = styled.div`
+const BusinessInfo = styled.p`
     margin: -16px 0 47px 0;
 
     p {
@@ -183,30 +192,23 @@ const BusinessInfo = styled.div`
 `;
 
 const Footer = () => {
-    // const {
-    //     datoCmsSite: {
-    //         globalSeo: { siteName },
-    //     },
-    //     datoCmsFooter: { boxinfo, boxtitle, companyinfo },
-    //     datoCmsContactInformation: { instagramLink, pinterestLink },
-    //     } = useStaticQuery(graphql`
-    //     query FooterQuery {
-    //         datoCmsSite {
-    //             globalSeo {
-    //             siteName
-    //         }
-    //         }
-    //         datoCmsFooter {
-    //             boxinfo
-    //             boxtitle
-    //             companyinfo
-    //         }
-    //         datoCmsSitewide {
-    //             instagramlink
-    //             pinterestlink
-    //         }
-    //     }
-    //     `);
+    const {
+        datoCmsSite: { siteName },
+        datoCmsFooter: { boxinfo, boxtitle, companyinfo },
+        } = useStaticQuery(graphql`
+        query FooterQuery {
+            datoCmsSite {
+                globalSeo {
+                    siteName
+                }
+            }
+            datoCmsFooter {
+                boxinfo
+                boxtitle
+                companyinfo
+            }
+        }
+        `);
 
     return (
         <StyledFooter>
@@ -227,9 +229,12 @@ const Footer = () => {
                         <StyledColumn1>
                             <img src={TrustPilot} alt="trustpilot"/>
                             <ComBox>
-                                <h3>Commercial Wallpaper</h3>
-                                <p>We enrich the spaces where people live, work and play, 
-                                by providing modern and industry-leading wallpaper designs.</p>
+                                <ComBoxTitle>
+                                    {boxtitle}
+                                </ComBoxTitle>
+                                <ComBoxInfo>
+                                    {boxinfo}
+                                </ComBoxInfo>
                                 <button className="learn-more-btn"><a href="learnmore">Learn more</a></button>
                             </ComBox>
                         </StyledColumn1>
@@ -301,9 +306,7 @@ const Footer = () => {
                     </PolicyList>
 
                     <BusinessInfo>
-                        <p>
-                        &copy; Hovia {new Date().getFullYear()}. 43 Bridgewater Street, Liverpool, Merseyside, England, L1 0AR, Registered in England Company Number: 07473316
-                        </p>
+                        &copy; {siteName} {new Date().getFullYear()}. {companyinfo}
                     </BusinessInfo>
                 </StyledInner>
             </Container>
