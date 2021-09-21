@@ -31,10 +31,17 @@ const StyledTop = styled.div`
     display: block;
     margin: auto;
 
-    ${minBreakpointQuery.large`
+    ${minBreakpointQuery.tiny`
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        margin: unset;
     `};
+`;
+
+const StyledBrand = styled.div`
+`;
+
+const StyledLogo = styled.img`
 `;
 
 const StyledLine = styled.hr`
@@ -52,37 +59,28 @@ const StyledSocial = styled.div`
     margin-top: 32px;
     white-space: nowrap;
 
-    ${minBreakpointQuery.large`
+    ${minBreakpointQuery.tiny`
         display: flex;
         justify-content: flex-end;
+        margin-top: 0;
     `};
 `;
 
 const StyledLinks = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    
-    ${minBreakpointQuery.large`
-        display: flex;
-        justify-content: space-between;
-    `};
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    ul {
+        padding-left: 0;
+    }
 
     ${maxBreakpointQuery.large`
-        justify-content: space-evenly;
         align-content: center;
         flex-wrap: wrap;
     `};
 
     ${maxBreakpointQuery.tiny`
         grid-template-columns: 1fr;
-    `};
-`;
-
-const StyledLink = styled.div`
-    ${maxBreakpointQuery.tiny`
-        display: grid;
-        grid-template-columns: 1fr 1fr;
     `};
 `;
 
@@ -141,7 +139,7 @@ const ComBox = styled.div`
 `;
 
 const ComBoxTitle = styled.h3`
-    
+
 `;
 
 const ComBoxInfo = styled.p`
@@ -158,6 +156,22 @@ const List = styled.li`
     };
 `;
 
+const StyledShopww = styled.div`
+`;
+
+const StyledSecureShop = styled.div`
+`;
+
+const StyledSecureBox = styled.div`
+`;
+
+const ShopWorldwideTitle = styled.h3`
+`;
+
+const SecurityBoxTitle = styled.h3`
+`;
+
+
 const PolicyList = styled.div`
     max-width: 400px;
     margin-top: 31px;
@@ -165,10 +179,8 @@ const PolicyList = styled.div`
     ul {
         display: flex;
         flex-wrap: wrap;
-        ${minBreakpointQuery.large`
-            display: flex;
-            justify-content: space-between;
-        `};
+        padding-left: 0;
+        justify-content: space-between;
     };
 
     li {
@@ -194,7 +206,7 @@ const BusinessInfo = styled.p`
 const Footer = () => {
     const {
         datoCmsSite: { siteName },
-        datoCmsFooter: { boxinfo, boxtitle, companyinfo },
+        datoCmsFooter: { boxinfo, boxtitle, companyinfo, flagstitle, securitytitle, hovialight },
         } = useStaticQuery(graphql`
         query FooterQuery {
             datoCmsSite {
@@ -206,6 +218,12 @@ const Footer = () => {
                 boxinfo
                 boxtitle
                 companyinfo
+                flagstitle
+                securitytitle
+                hovialight {
+                    url
+                    alt
+                    }
             }
         }
         `);
@@ -215,9 +233,9 @@ const Footer = () => {
             <Container>
                 <StyledInner>
                     <StyledTop>
-                        <div className="brand-logo">
-                            <img className="hovia-logo" src={HoviaWhite} alt="hovia"/>
-                        </div>
+                        <StyledBrand>
+                            <StyledLogo src={HoviaWhite} alt="hovia"/>
+                        </StyledBrand>
                         <StyledSocial>
                             <img className="insta" src={Insta} alt="Instagram"/>
                             <img className="pint" src={Pint} alt="Pinterest"/>
@@ -238,7 +256,6 @@ const Footer = () => {
                                 <button className="learn-more-btn"><a href="learnmore">Learn more</a></button>
                             </ComBox>
                         </StyledColumn1>
-                        <StyledLink>
                             {/* Column2 */}
                             <StyledColumn2>
                                 <h3 className="footer-titles">Company info</h3>
@@ -260,11 +277,10 @@ const Footer = () => {
                                     <List><a href="Ordersamples">Order samples</a></List>
                                 </ul>
                             </StyledColumn3>
-                        </StyledLink>
                         {/* Column4 */}
                         <StyledColumn4>
-                            <div className="shop-worldwide">
-                                <h3 className="footer-titles">Shop worldwide</h3>
+                            <StyledShopww>
+                                <ShopWorldwideTitle>{flagstitle}</ShopWorldwideTitle>
                                 <div className="flag-box">
                                     <img src={flag0} alt="flag0"/>
                                     <img src={flag1} alt="flag1"/>
@@ -277,13 +293,13 @@ const Footer = () => {
                                     <img src={flag8} alt="flag8"/>
                                     <img src={flag9} alt="flag9"/>
                                 </div>
-                            </div>
-                            <div className="secure-shopping">
-                                <h3 className="footer-titles">Secure shopping</h3>
+                            </StyledShopww>
+                            <StyledSecureShop>
+                                <SecurityBoxTitle>{securitytitle}</SecurityBoxTitle>
                                     <div className="norton-space">
                                         <img className="norton" src={secure1} alt="secure1"/>
                                     </div>
-                                <div className="security-box">
+                                <StyledSecureBox>
                                     <img src={secure2} alt="secure2"/>
                                     <img src={secure3} alt="secure3"/>
                                     <img src={secure4} alt="secure4"/>
@@ -292,8 +308,8 @@ const Footer = () => {
                                     <img src={secure7} alt="secure7"/>
                                     <img src={secure8} alt="secure8"/>
                                     <img src={secure9} alt="secure9"/>
-                                </div>
-                            </div>
+                                </StyledSecureBox>
+                            </StyledSecureShop>
                         </StyledColumn4>
                     </StyledLinks>
 
