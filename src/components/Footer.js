@@ -41,8 +41,6 @@ const StyledTop = styled.div`
 const StyledBrand = styled.div`
 `;
 
-const StyledLogo = styled.img`
-`;
 
 const StyledLine = styled.hr`
     margin: 30px auto 0;
@@ -156,7 +154,16 @@ const List = styled.li`
     };
 `;
 
+const StyledLinksTitle = styled.h3`
+`;
+
 const StyledShopww = styled.div`
+`;
+
+const StyledShopwwBox = styled.div`
+`;
+
+const ShopWorldwideTitle = styled.h3`
 `;
 
 const StyledSecureShop = styled.div`
@@ -165,12 +172,11 @@ const StyledSecureShop = styled.div`
 const StyledSecureBox = styled.div`
 `;
 
-const ShopWorldwideTitle = styled.h3`
-`;
-
 const SecurityBoxTitle = styled.h3`
 `;
 
+const StyledNorton = styled.div`
+`;
 
 const PolicyList = styled.div`
     max-width: 400px;
@@ -182,17 +188,6 @@ const PolicyList = styled.div`
         padding-left: 0;
         justify-content: space-between;
     };
-
-    li {
-        list-style: none;
-    };
-
-    a {
-        white-space: nowrap;
-        text-decoration: underline;
-        gap: 20px;
-        color: ${standardColours.white};
-    };
 `;
 
 const BusinessInfo = styled.p`
@@ -203,11 +198,36 @@ const BusinessInfo = styled.p`
     };
 `;
 
+// images
+const StyledLogo = styled.img`
+`;
+
+const StyledSocialInst = styled.img`
+`;
+
+const StyledSocialPint = styled.img`
+`;
+
+const StyledTrustImg = styled.img`
+`;
+
+const StyledFlagsImg = styled.img`
+`;
+
+const StyledSecureImg = styled.img`
+`;
+
+const StyledNortonImg = styled.img`
+`;
+
+//
+
+
 const Footer = () => {
     const {
         datoCmsSite: { siteName },
         datoCmsFooter: { boxinfo, boxtitle, companyinfo, flagstitle, securitytitle, hovialight },
-        } = useStaticQuery(graphql`
+    } = useStaticQuery(graphql`
         query FooterQuery {
             datoCmsSite {
                 globalSeo {
@@ -237,15 +257,15 @@ const Footer = () => {
                             <StyledLogo src={HoviaWhite} alt="hovia"/>
                         </StyledBrand>
                         <StyledSocial>
-                            <img className="insta" src={Insta} alt="Instagram"/>
-                            <img className="pint" src={Pint} alt="Pinterest"/>
+                            <StyledSocialInst src={Insta} alt="Instagram"/>
+                            <StyledSocialPint src={Pint} alt="Pinterest"/>
                         </StyledSocial>
                     </StyledTop>
                     <StyledLine />
                     <StyledLinks>
                         {/* Column1 */}
                         <StyledColumn1>
-                            <img src={TrustPilot} alt="trustpilot"/>
+                            <StyledTrustImg src={TrustPilot} alt="trustpilot"/>
                             <ComBox>
                                 <ComBoxTitle>
                                     {boxtitle}
@@ -258,7 +278,7 @@ const Footer = () => {
                         </StyledColumn1>
                             {/* Column2 */}
                             <StyledColumn2>
-                                <h3 className="footer-titles">Company info</h3>
+                                <StyledLinksTitle>Company info</StyledLinksTitle>
                                 <ul className="list">
                                     <List><a href="contactus">Contact us</a></List>
                                     <List><a href="about">About</a></List>
@@ -267,7 +287,7 @@ const Footer = () => {
                             </StyledColumn2>
                             {/* Column3 */}
                             <StyledColumn3>
-                                <h3 className="footer-titles">Product info</h3>
+                                <StyledLinksTitle>Product info</StyledLinksTitle>
                                 <ul className="list">
                                     <List><a href="Howitworks">How it works</a></List>
                                     <List><a href="Measurement&Installation">Measurement & Installation</a></List>
@@ -281,33 +301,33 @@ const Footer = () => {
                         <StyledColumn4>
                             <StyledShopww>
                                 <ShopWorldwideTitle>{flagstitle}</ShopWorldwideTitle>
-                                <div className="flag-box">
-                                    <img src={flag0} alt="flag0"/>
-                                    <img src={flag1} alt="flag1"/>
-                                    <img src={flag2} alt="flag2"/>
-                                    <img src={flag3} alt="flag3"/>
-                                    <img src={flag4} alt="flag4"/>
-                                    <img src={flag5} alt="flag5"/>
-                                    <img src={flag6} alt="flag6"/>
-                                    <img src={flag7} alt="flag7"/>
-                                    <img src={flag8} alt="flag8"/>
-                                    <img src={flag9} alt="flag9"/>
-                                </div>
+                                <StyledShopwwBox>
+                                    <StyledFlagsImg src={flag0} alt="flag0"/>
+                                    <StyledFlagsImg src={flag1} alt="flag1"/>
+                                    <StyledFlagsImg src={flag2} alt="flag2"/>
+                                    <StyledFlagsImg src={flag3} alt="flag3"/>
+                                    <StyledFlagsImg src={flag4} alt="flag4"/>
+                                    <StyledFlagsImg src={flag5} alt="flag5"/>
+                                    <StyledFlagsImg src={flag6} alt="flag6"/>
+                                    <StyledFlagsImg src={flag7} alt="flag7"/>
+                                    <StyledFlagsImg src={flag8} alt="flag8"/>
+                                    <StyledFlagsImg src={flag9} alt="flag9"/>
+                                </StyledShopwwBox>
                             </StyledShopww>
                             <StyledSecureShop>
                                 <SecurityBoxTitle>{securitytitle}</SecurityBoxTitle>
-                                    <div className="norton-space">
-                                        <img className="norton" src={secure1} alt="secure1"/>
-                                    </div>
+                                    <StyledNorton>
+                                        <StyledNortonImg src={secure1} alt="secure1"/>
+                                    </StyledNorton>
                                 <StyledSecureBox>
-                                    <img src={secure2} alt="secure2"/>
-                                    <img src={secure3} alt="secure3"/>
-                                    <img src={secure4} alt="secure4"/>
-                                    <img src={secure5} alt="secure5"/>
-                                    <img src={secure6} alt="secure6"/>
-                                    <img src={secure7} alt="secure7"/>
-                                    <img src={secure8} alt="secure8"/>
-                                    <img src={secure9} alt="secure9"/>
+                                    <StyledSecureImg src={secure2} alt="secure2"/>
+                                    <StyledSecureImg src={secure3} alt="secure3"/>
+                                    <StyledSecureImg src={secure4} alt="secure4"/>
+                                    <StyledSecureImg src={secure5} alt="secure5"/>
+                                    <StyledSecureImg src={secure6} alt="secure6"/>
+                                    <StyledSecureImg src={secure7} alt="secure7"/>
+                                    <StyledSecureImg src={secure8} alt="secure8"/>
+                                    <StyledSecureImg src={secure9} alt="secure9"/>
                                 </StyledSecureBox>
                             </StyledSecureShop>
                         </StyledColumn4>
@@ -315,9 +335,9 @@ const Footer = () => {
 
                     <PolicyList>
                         <ul className="list-1">
-                            <li><a href="Terms&Conditions">Terms & Conditions</a></li>
-                            <li><a href="Privacypolicy">Privacy policy</a></li>
-                            <li><a href="Returnspolicy">Returns policy</a></li>
+                            <List><a href="Terms&Conditions">Terms & Conditions</a></List>
+                            <List><a href="Privacypolicy">Privacy policy</a></List>
+                            <List><a href="Returnspolicy">Returns policy</a></List>
                         </ul>
                     </PolicyList>
 
