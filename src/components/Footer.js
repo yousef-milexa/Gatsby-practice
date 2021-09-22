@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from "./ui/Container"
+import { Container, Svg } from "./ui"
 import styled from "styled-components";
 import { 
     brandColours,
@@ -9,7 +9,7 @@ import {
 } from '../styles';
 import { flag0, flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9,
     secure1, secure2, secure3, secure4, secure5, secure6, secure7, secure8, secure9, 
-    HoviaWhite, Insta, Pint, TrustPilot } from "../images/assets/images";
+    hoviaWhite, instagramIcon, pinterestIcon, trustPilot } from "../images/assets/images";
 import { useStaticQuery, graphql } from 'gatsby';
 
 
@@ -64,6 +64,9 @@ const StyledSocial = styled.div`
     `};
 `;
 
+const StyledSocialLink = styled.div`
+`;
+
 const StyledLinks = styled.div`
     display: flex;
     justify-content: space-between;
@@ -83,14 +86,6 @@ const StyledLinks = styled.div`
 `;
 
 const StyledColumn1 = styled.div`
-    img {
-        margin-top: 31px;
-    };
-
-    p { 
-        margin-top: 8px;
-    };
-
     a {
         color: ${brandColours.neutral[500]};
         text-decoration: none;
@@ -141,7 +136,7 @@ const ComBoxTitle = styled.h3`
 `;
 
 const ComBoxInfo = styled.p`
-
+    margin-top: 8px;
 `;
 
 const List = styled.li`
@@ -161,6 +156,8 @@ const StyledShopww = styled.div`
 `;
 
 const StyledShopwwBox = styled.div`
+    display: table;
+    width: 100%;
 `;
 
 const ShopWorldwideTitle = styled.h3`
@@ -170,6 +167,8 @@ const StyledSecureShop = styled.div`
 `;
 
 const StyledSecureBox = styled.div`
+    display: table;
+    width: 100%;
 `;
 
 const SecurityBoxTitle = styled.h3`
@@ -199,25 +198,23 @@ const BusinessInfo = styled.p`
 `;
 
 // images
-const StyledLogo = styled.img`
+const StyledLogo = styled(Svg)`
 `;
 
-const StyledSocialInst = styled.img`
+const StyledIcon = styled(Svg)`
+    height: 32px;
+    width: 32px;
 `;
 
-const StyledSocialPint = styled.img`
+const StyledTrustImg = styled(Svg)`
+    margin-top: 31px;
 `;
 
-const StyledTrustImg = styled.img`
+const StyledTinyImg = styled(Svg)`
+    margin-right: 8px;
 `;
 
-const StyledFlagsImg = styled.img`
-`;
-
-const StyledSecureImg = styled.img`
-`;
-
-const StyledNortonImg = styled.img`
+const StyledNortonImg = styled(Svg)`
 `;
 
 //
@@ -227,13 +224,14 @@ const Footer = () => {
     const {
         datoCmsSite: { siteName },
         datoCmsFooter: { boxinfo, boxtitle, companyinfo, flagstitle, securitytitle, hovialight },
+        datoCmsSitewide: { instagramprofile, pinterestprofile },
     } = useStaticQuery(graphql`
         query FooterQuery {
             datoCmsSite {
                 globalSeo {
                     siteName
+                    }
                 }
-            }
             datoCmsFooter {
                 boxinfo
                 boxtitle
@@ -244,8 +242,12 @@ const Footer = () => {
                     url
                     alt
                     }
+                }
+            datoCmsSitewide {
+                instagramprofile
+                pinterestprofile
+                }
             }
-        }
         `);
 
     return (
@@ -254,18 +256,36 @@ const Footer = () => {
                 <StyledInner>
                     <StyledTop>
                         <StyledBrand>
-                            <StyledLogo src={HoviaWhite} alt="hovia"/>
+                            <StyledLogo image={hoviaWhite} title={`hovia`}/>
                         </StyledBrand>
-                        <StyledSocial>
-                            <StyledSocialInst src={Insta} alt="Instagram"/>
-                            <StyledSocialPint src={Pint} alt="Pinterest"/>
-                        </StyledSocial>
+                        {(instagramprofile || pinterestprofile) && (
+                            <StyledSocial>
+                                {instagramprofile && (
+                                    <StyledSocialLink
+                                        href={instagramprofile}
+                                        target={`_blank`}
+                                        rel={`noopener noreferrer`}
+                                    >
+                                        <StyledIcon image={instagramIcon} title={`Instagram`}/>
+                                    </StyledSocialLink>
+                                )}
+                                {pinterestprofile && (
+                                    <StyledSocialLink
+                                        href={pinterestprofile}
+                                        target={`_blank`}
+                                        rel={`noopener noreferrer`}
+                                    >
+                                        <StyledIcon image={pinterestIcon} title={`Pinterest`}/>
+                                    </StyledSocialLink>
+                                )}
+                            </StyledSocial>
+                        )}
                     </StyledTop>
                     <StyledLine />
                     <StyledLinks>
                         {/* Column1 */}
                         <StyledColumn1>
-                            <StyledTrustImg src={TrustPilot} alt="trustpilot"/>
+                            <StyledTrustImg image={trustPilot} title={`trustpilot`}/>
                             <ComBox>
                                 <ComBoxTitle>
                                     {boxtitle}
@@ -302,32 +322,32 @@ const Footer = () => {
                             <StyledShopww>
                                 <ShopWorldwideTitle>{flagstitle}</ShopWorldwideTitle>
                                 <StyledShopwwBox>
-                                    <StyledFlagsImg src={flag0} alt="flag0"/>
-                                    <StyledFlagsImg src={flag1} alt="flag1"/>
-                                    <StyledFlagsImg src={flag2} alt="flag2"/>
-                                    <StyledFlagsImg src={flag3} alt="flag3"/>
-                                    <StyledFlagsImg src={flag4} alt="flag4"/>
-                                    <StyledFlagsImg src={flag5} alt="flag5"/>
-                                    <StyledFlagsImg src={flag6} alt="flag6"/>
-                                    <StyledFlagsImg src={flag7} alt="flag7"/>
-                                    <StyledFlagsImg src={flag8} alt="flag8"/>
-                                    <StyledFlagsImg src={flag9} alt="flag9"/>
+                                    <StyledTinyImg image={flag0} title={`flag0`}/>
+                                    <StyledTinyImg image={flag1} title={`flag1`}/>
+                                    <StyledTinyImg image={flag2} title={`flag2`}/>
+                                    <StyledTinyImg image={flag3} title={`flag3`}/>
+                                    <StyledTinyImg image={flag4} title={`flag4`}/>
+                                    <StyledTinyImg image={flag5} title={`flag5`}/>
+                                    <StyledTinyImg image={flag6} title={`flag6`}/>
+                                    <StyledTinyImg image={flag7} title={`flag7`}/>
+                                    <StyledTinyImg image={flag8} title={`flag8`}/>
+                                    <StyledTinyImg image={flag9} title={`flag9`}/>
                                 </StyledShopwwBox>
                             </StyledShopww>
                             <StyledSecureShop>
                                 <SecurityBoxTitle>{securitytitle}</SecurityBoxTitle>
                                     <StyledNorton>
-                                        <StyledNortonImg src={secure1} alt="secure1"/>
+                                        <StyledNortonImg image={secure1} title={`secure1`}/>
                                     </StyledNorton>
                                 <StyledSecureBox>
-                                    <StyledSecureImg src={secure2} alt="secure2"/>
-                                    <StyledSecureImg src={secure3} alt="secure3"/>
-                                    <StyledSecureImg src={secure4} alt="secure4"/>
-                                    <StyledSecureImg src={secure5} alt="secure5"/>
-                                    <StyledSecureImg src={secure6} alt="secure6"/>
-                                    <StyledSecureImg src={secure7} alt="secure7"/>
-                                    <StyledSecureImg src={secure8} alt="secure8"/>
-                                    <StyledSecureImg src={secure9} alt="secure9"/>
+                                    <StyledTinyImg image={secure2} title={`secure2`}/>
+                                    <StyledTinyImg image={secure3} title={`secure3`}/>
+                                    <StyledTinyImg image={secure4} title={`secure4`}/>
+                                    <StyledTinyImg image={secure5} title={`secure5`}/>
+                                    <StyledTinyImg image={secure6} title={`secure6`}/>
+                                    <StyledTinyImg image={secure7} title={`secure7`}/>
+                                    <StyledTinyImg image={secure8} title={`secure8`}/>
+                                    <StyledTinyImg image={secure9} title={`secure9`}/>
                                 </StyledSecureBox>
                             </StyledSecureShop>
                         </StyledColumn4>

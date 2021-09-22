@@ -20,25 +20,25 @@ import secure8 from "./secure-8.svg";
 import secure9 from "./secure-9.svg";
 
 import dropDownArrow from "./drop-down-icon.svg";
-import UKflag from "./flag-0.svg";
-import RightArrow from "./right-arrow.svg";
-import HoviaWhite from "./hovia-white.svg";
-import Search from "./search-icon.svg";
-import Wishlist from "./wishlist.svg";
-import Photo from "./photos-icon.svg";
-import Truck from "./truck.svg";
-import Calender from "./calender.svg";
-import Trust from "./trustpilot-usp.svg";
+import ukFlag from "./flag-0.svg";
+import rightArrow from "./right-arrow.svg";
+import hoviaWhite from "./hoviaWhite.svg";
+import search from "./search-icon.svg";
+import wishList from "./wishlist.svg";
+import photo from "./photos-icon.svg";
+import truck from "./truck.svg";
+import calender from "./calender.svg";
+import trust from "./trustpilot-usp.svg";
 
-import HoviaBlack from "./hovia-black.svg";
-import Insta from "./Instagram.svg";
-import Pint from "./pint.svg";
+import hoviaBlack from "./hoviablack.svg";
+import instagramIcon from "./instagram.svg";
+import pinterestIcon from "./pinterest.svg";
 
-import DropDown from "./dropdown.svg";
+import dropDown from "./dropdown.svg";
 
-import TrustPilot from "./trustpilot.svg";
+import trustPilot from "./trustpilot.svg";
 
 export { flag0, flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9, 
     secure1, secure2, secure3, secure4, secure5, secure6, secure7, secure8, secure9, 
-    DropDown, HoviaBlack, dropDownArrow, UKflag, RightArrow, Search, Wishlist, Photo, Truck, Calender, Trust, 
-    HoviaWhite, Insta, Pint, TrustPilot};
+    dropDown, hoviaBlack, dropDownArrow, ukFlag, rightArrow, search, wishList, photo, truck, calender, trust, 
+    hoviaWhite, instagramIcon, pinterestIcon, trustPilot};

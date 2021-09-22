@@ -15,6 +15,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
+    'gatsby-plugin-react-svg',
     {
       resolve: `gatsby-source-datocms`,
       options: {
