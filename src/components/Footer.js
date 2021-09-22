@@ -54,6 +54,7 @@ const StyledLine = styled.hr`
 const StyledSocial = styled.div`
     display: flex;
     justify-content: center;
+    gap: 16px;
     margin-top: 32px;
     white-space: nowrap;
 
@@ -71,6 +72,8 @@ const StyledLinks = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 30px;
+
     ul {
         padding-left: 0;
     }
@@ -81,7 +84,21 @@ const StyledLinks = styled.div`
     `};
 
     ${maxBreakpointQuery.tiny`
-        grid-template-columns: 1fr;
+        gap: 10px;
+    `};
+`;
+
+const StyledLink = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 100px;
+    ${maxBreakpointQuery.large`
+        width: 100%
+    `};
+
+    ${maxBreakpointQuery.tsmall`
+        gap: 10px;
     `};
 `;
 
@@ -89,14 +106,6 @@ const StyledColumn1 = styled.div`
     a {
         color: ${brandColours.neutral[500]};
         text-decoration: none;
-    };
-
-    button {
-        height: 56px;
-        width: 264px;
-        border-radius: 4px;
-        margin-top: 16px;
-        cursor: pointer;
     };
 
     ${maxBreakpointQuery.large`
@@ -117,6 +126,8 @@ const StyledColumn3 = styled.div`
 `;
 
 const StyledColumn4 = styled.div`
+    width: 230px;
+    margin-right: 40px;
     ${maxBreakpointQuery.large`
         order: 4;
     `};
@@ -132,17 +143,44 @@ const ComBox = styled.div`
 `;
 
 const ComBoxTitle = styled.h3`
-
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    vertical-align: top;
 `;
 
 const ComBoxInfo = styled.p`
+    font-size: 14px;
     margin-top: 8px;
+    flex-wrap: wrap;
+    text-align: left;
+    vertical-align: top;
+`;
+
+const StyledBtnDiv = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+const StyledComBoxButton = styled.button`
+    font-size: 16px;
+    line-height: 24px;
+    font-style: bold;
+    height: 56px;
+    width: 264px;
+    border-radius: 4px;
+    margin-top: 16px;
+    cursor: pointer;
 `;
 
 const List = styled.li`
     list-style: none;
     padding-bottom: 8px;
     cursor: pointer;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 16px;
+    text-underline-offset: 4px;
 
     a {
         color: ${standardColours.white};
@@ -150,28 +188,29 @@ const List = styled.li`
 `;
 
 const StyledLinksTitle = styled.h3`
+    font-size: 16px;
+    line-height: 24px;
 `;
 
 const StyledShopww = styled.div`
 `;
 
-const StyledShopwwBox = styled.div`
+const StyledGuaranteeIcons = styled.div`
     display: table;
     width: 100%;
 `;
 
 const ShopWorldwideTitle = styled.h3`
+    font-size: 16px;
+    line-height: 24px;
 `;
 
 const StyledSecureShop = styled.div`
 `;
 
-const StyledSecureBox = styled.div`
-    display: table;
-    width: 100%;
-`;
-
 const SecurityBoxTitle = styled.h3`
+    font-size: 16px;
+    line-height: 24px;
 `;
 
 const StyledNorton = styled.div`
@@ -190,6 +229,8 @@ const PolicyList = styled.div`
 `;
 
 const BusinessInfo = styled.p`
+    font-size: 12px;
+    line-height: 16px;
     margin: -16px 0 47px 0;
 
     p {
@@ -293,35 +334,39 @@ const Footer = () => {
                                 <ComBoxInfo>
                                     {boxinfo}
                                 </ComBoxInfo>
-                                <button className="learn-more-btn"><a href="learnmore">Learn more</a></button>
+                                <StyledBtnDiv>
+                                    <StyledComBoxButton><a href="learnmore">Learn more</a></StyledComBoxButton>
+                                </StyledBtnDiv>
                             </ComBox>
                         </StyledColumn1>
                             {/* Column2 */}
-                            <StyledColumn2>
-                                <StyledLinksTitle>Company info</StyledLinksTitle>
-                                <ul className="list">
-                                    <List><a href="contactus">Contact us</a></List>
-                                    <List><a href="about">About</a></List>
-                                    <List><a href="blog">Blog</a></List>
-                                </ul>
-                            </StyledColumn2>
-                            {/* Column3 */}
-                            <StyledColumn3>
-                                <StyledLinksTitle>Product info</StyledLinksTitle>
-                                <ul className="list">
-                                    <List><a href="Howitworks">How it works</a></List>
-                                    <List><a href="Measurement&Installation">Measurement & Installation</a></List>
-                                    <List><a href="Papertypes">Paper types</a></List>
-                                    <List><a href="Delivery&returns">Delivery & returns</a></List>
-                                    <List><a href="faq">Frequently asked questions</a></List>
-                                    <List><a href="Ordersamples">Order samples</a></List>
-                                </ul>
-                            </StyledColumn3>
+                            <StyledLink>
+                                <StyledColumn2>
+                                    <StyledLinksTitle>Company info</StyledLinksTitle>
+                                    <ul className="list">
+                                        <List><a href="contactus">Contact us</a></List>
+                                        <List><a href="about">About</a></List>
+                                        <List><a href="blog">Blog</a></List>
+                                    </ul>
+                                </StyledColumn2>
+                                {/* Column3 */}
+                                <StyledColumn3>
+                                    <StyledLinksTitle>Product info</StyledLinksTitle>
+                                    <ul className="list">
+                                        <List><a href="Howitworks">How it works</a></List>
+                                        <List><a href="Measurement&Installation">Measurement & Installation</a></List>
+                                        <List><a href="Papertypes">Paper types</a></List>
+                                        <List><a href="Delivery&returns">Delivery & returns</a></List>
+                                        <List><a href="faq">Frequently asked questions</a></List>
+                                        <List><a href="Ordersamples">Order samples</a></List>
+                                    </ul>
+                                </StyledColumn3>
+                            </StyledLink>
                         {/* Column4 */}
                         <StyledColumn4>
                             <StyledShopww>
                                 <ShopWorldwideTitle>{flagstitle}</ShopWorldwideTitle>
-                                <StyledShopwwBox>
+                                <StyledGuaranteeIcons>
                                     <StyledTinyImg image={flag0} title={`flag0`}/>
                                     <StyledTinyImg image={flag1} title={`flag1`}/>
                                     <StyledTinyImg image={flag2} title={`flag2`}/>
@@ -332,14 +377,14 @@ const Footer = () => {
                                     <StyledTinyImg image={flag7} title={`flag7`}/>
                                     <StyledTinyImg image={flag8} title={`flag8`}/>
                                     <StyledTinyImg image={flag9} title={`flag9`}/>
-                                </StyledShopwwBox>
+                                </StyledGuaranteeIcons>
                             </StyledShopww>
                             <StyledSecureShop>
                                 <SecurityBoxTitle>{securitytitle}</SecurityBoxTitle>
                                     <StyledNorton>
                                         <StyledNortonImg image={secure1} title={`secure1`}/>
                                     </StyledNorton>
-                                <StyledSecureBox>
+                                <StyledGuaranteeIcons>
                                     <StyledTinyImg image={secure2} title={`secure2`}/>
                                     <StyledTinyImg image={secure3} title={`secure3`}/>
                                     <StyledTinyImg image={secure4} title={`secure4`}/>
@@ -348,7 +393,7 @@ const Footer = () => {
                                     <StyledTinyImg image={secure7} title={`secure7`}/>
                                     <StyledTinyImg image={secure8} title={`secure8`}/>
                                     <StyledTinyImg image={secure9} title={`secure9`}/>
-                                </StyledSecureBox>
+                                </StyledGuaranteeIcons>
                             </StyledSecureShop>
                         </StyledColumn4>
                     </StyledLinks>
