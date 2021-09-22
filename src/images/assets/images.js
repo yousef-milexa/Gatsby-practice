@@ -22,7 +22,7 @@ import secure9 from "./secure-9.svg";
 import dropDownArrow from "./drop-down-icon.svg";
 import ukFlag from "./flag-0.svg";
 import rightArrow from "./right-arrow.svg";
-import hoviaWhite from "./hoviaWhite.svg";
+import hoviaWhite from "./hoviawhite.svg";
 import search from "./search-icon.svg";
 import wishList from "./wishlist.svg";
 import photo from "./photos-icon.svg";
