@@ -9,10 +9,8 @@ import {
 } from '../styles';
 import { flag0, flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9,
     secure1, secure2, secure3, secure4, secure5, secure6, secure7, secure8, secure9, 
-    hoviaWhite, pinterestIcon, trustPilot } from "../images/assets/images";
+    hoviaWhite, instagramIcon, pinterestIcon, trustPilot } from "../images/assets/images";
 import { useStaticQuery, graphql } from 'gatsby';
-import instagramIcon from '../images/assets/instagram.svg';
-
 
 const StyledFooter = styled.footer`
     background-color: ${brandColours.neutral[500]};
