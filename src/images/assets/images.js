@@ -9,7 +9,7 @@ import flag7 from "./flag-7.svg";
 import flag8 from "./flag-8.svg";
 import flag9 from "./flag-9.svg";
 
-import secure1 from "./secure-1.svg";
+import norton from "./norton.svg";
 import secure2 from "./secure-2.svg";
 import secure3 from "./secure-3.svg";
 import secure4 from "./secure-4.svg";
@@ -39,6 +39,6 @@ import dropDown from "./dropdown.svg";
 import trustPilot from "./trustpilot.svg";
 
 export { flag0, flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9, 
-    secure1, secure2, secure3, secure4, secure5, secure6, secure7, secure8, secure9, 
+    norton, secure2, secure3, secure4, secure5, secure6, secure7, secure8, secure9, 
     dropDown, hoviaBlack, dropDownArrow, ukFlag, rightArrow, search, wishList, photo, truck, calender, trust, 
     hoviaWhite, instagramIcon, pinterestIcon, trustPilot};

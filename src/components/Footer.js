@@ -8,7 +8,7 @@ import {
     maxBreakpointQuery,
 } from '../styles';
 import { flag0, flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9,
-    secure1, secure2, secure3, secure4, secure5, secure6, secure7, secure8, secure9, 
+    norton, secure2, secure3, secure4, secure5, secure6, secure7, secure8, secure9, 
     hoviaWhite, instagramIcon, pinterestIcon, trustPilot } from "../images/assets/images";
 import { useStaticQuery, graphql } from 'gatsby';
 
@@ -168,7 +168,6 @@ const StyledComBoxButton = styled.button`
     height: 56px;
     width: 264px;
     border-radius: 4px;
-    margin-top: 16px;
     cursor: pointer;
 `;
 
@@ -246,6 +245,11 @@ const StyledIcon = styled(Svg)`
     width: 32px;
 `;
 
+const StyledIcon1 = styled(Svg)`
+    height: 32px;
+    width: 32px;
+`;
+
 const StyledTrustImg = styled(Svg)`
     margin-top: 31px;
 `;
@@ -306,7 +310,7 @@ const Footer = () => {
                                         target={`_blank`}
                                         rel={`noopener noreferrer`}
                                     >
-                                        <StyledIcon image={instagramIcon} title={`Instagram`}/>
+                                        <StyledIcon1 image={instagramIcon} title={`Instagram`}/>
                                     </StyledSocialLink>
                                 )}
                                 {pinterestprofile && (
@@ -381,7 +385,7 @@ const Footer = () => {
                             <StyledSecureShop>
                                 <SecurityBoxTitle>{securitytitle}</SecurityBoxTitle>
                                     <StyledNorton>
-                                        <StyledNortonImg image={secure1} title={`secure1`}/>
+                                        <StyledNortonImg image={norton} title={`norton`}/>
                                     </StyledNorton>
                                 <StyledGuaranteeIcons>
                                     <StyledTinyImg image={secure2} title={`secure2`}/>

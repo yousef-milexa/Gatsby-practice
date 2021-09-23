@@ -4,8 +4,8 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Level Up Blog',
-    description: 'A new blog!',
+    title: 'Hovia',
+    description: 'Hovia site',
     siteUrl: 'https://vibrant-poincare-f9e451.netlify.com',
   },
   plugins: [
