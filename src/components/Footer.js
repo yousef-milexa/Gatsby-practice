@@ -243,11 +243,7 @@ const StyledLogo = styled(Svg)`
 const StyledIcon = styled(Svg)`
     height: 32px;
     width: 32px;
-`;
-
-const StyledIcon1 = styled(Svg)`
-    height: 32px;
-    width: 32px;
+    cursor: pointer;
 `;
 
 const StyledTrustImg = styled(Svg)`
@@ -310,7 +306,7 @@ const Footer = () => {
                                         target={`_blank`}
                                         rel={`noopener noreferrer`}
                                     >
-                                        <StyledIcon1 image={instagramIcon} title={`Instagram`}/>
+                                        <StyledIcon image={instagramIcon} title={`Instagram`}/>
                                     </StyledSocialLink>
                                 )}
                                 {pinterestprofile && (
