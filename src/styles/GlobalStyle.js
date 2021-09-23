@@ -28,6 +28,16 @@ const GlobalStyle = createGlobalStyle`
         line-height: 1.3;
         ${brandFonts.sofiaProBodyReg};
     }
+
+    button,
+    h3 {
+        ${brandFonts.sofiaProBodyBold};
+    }
+
+    p,
+    li {
+        ${brandFonts.sofiaProBodySml};
+    }
 `;
 
 export default GlobalStyle;

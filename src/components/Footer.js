@@ -142,15 +142,12 @@ const ComBox = styled.div`
 `;
 
 const ComBoxTitle = styled.h3`
-    font-size: 16px;
-    line-height: 24px;
+    margin-top: 0;
     text-align: left;
     vertical-align: top;
 `;
 
 const ComBoxInfo = styled.p`
-    font-size: 14px;
-    margin-top: 8px;
     flex-wrap: wrap;
     text-align: left;
     vertical-align: top;
@@ -162,9 +159,6 @@ const StyledBtnDiv = styled.div`
 `;
 
 const StyledComBoxButton = styled.button`
-    font-size: 16px;
-    line-height: 24px;
-    font-style: bold;
     height: 56px;
     width: 264px;
     border-radius: 4px;
@@ -175,8 +169,6 @@ const List = styled.li`
     list-style: none;
     padding-bottom: 8px;
     cursor: pointer;
-    font-size: 14px;
-    line-height: 24px;
     margin-bottom: 16px;
     text-underline-offset: 4px;
 
@@ -186,8 +178,6 @@ const List = styled.li`
 `;
 
 const StyledLinksTitle = styled.h3`
-    font-size: 16px;
-    line-height: 24px;
 `;
 
 const StyledShopww = styled.div`
@@ -199,16 +189,12 @@ const StyledGuaranteeIcons = styled.div`
 `;
 
 const ShopWorldwideTitle = styled.h3`
-    font-size: 16px;
-    line-height: 24px;
 `;
 
 const StyledSecureShop = styled.div`
 `;
 
 const SecurityBoxTitle = styled.h3`
-    font-size: 16px;
-    line-height: 24px;
 `;
 
 const StyledNorton = styled.div`
@@ -227,8 +213,6 @@ const PolicyList = styled.div`
 `;
 
 const BusinessInfo = styled.p`
-    font-size: 12px;
-    line-height: 16px;
     margin: -16px 0 47px 0;
 
     p {
