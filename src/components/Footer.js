@@ -8,9 +8,29 @@ import {
     maxBreakpointQuery,
     fontSize,
 } from '../styles';
-import { flag0, flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9,
-    norton, secure2, secure3, secure4, secure5, secure6, secure7, secure8, secure9, 
-    hoviaWhite, instagramIcon, pinterestIcon, trustPilot } from "../images/assets/Images";
+import instagramIcon from "../images/assets/instagram.inline.svg";
+import pinterestIcon from "../images/assets/pinterest.svg";
+import hoviaWhite from "../images/assets/hoviawhite.svg";
+import trustPilot from "../images/assets/trustpilot.svg";
+import flag0 from "../images/assets/flag-0.svg";
+import flag1 from "../images/assets/flag-1.svg";
+import flag2 from "../images/assets/flag-2.svg";
+import flag3 from "../images/assets/flag-3.svg";
+import flag4 from "../images/assets/flag-4.svg";
+import flag5 from "../images/assets/flag-5.svg";
+import flag6 from "../images/assets/flag-6.svg";
+import flag7 from "../images/assets/flag-7.svg";
+import flag8 from "../images/assets/flag-8.svg";
+import flag9 from "../images/assets/flag-9.svg";
+import norton from "../images/assets/norton.svg";
+import secure2 from "../images/assets/secure-2.svg";
+import secure3 from "../images/assets/secure-3.svg";
+import secure4 from "../images/assets/secure-4.svg";
+import secure5 from "../images/assets/secure-5.svg";
+import secure6 from "../images/assets/secure-6.svg";
+import secure7 from "../images/assets/secure-7.svg";
+import secure8 from "../images/assets/secure-8.svg";
+import secure9 from "../images/assets/secure-9.svg";
 import { useStaticQuery, graphql } from 'gatsby';
 
 const StyledFooter = styled.footer`
