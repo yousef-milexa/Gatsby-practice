@@ -40,7 +40,6 @@ const StyledTop = styled.div`
 const StyledBrand = styled.div`
 `;
 
-
 const StyledLine = styled.hr`
     margin: 30px auto 0;
     height: 1px;
@@ -179,7 +178,6 @@ const List = styled.li`
 
 const StyledLinksTitle = styled.h3`
 `;
-
 const StyledShopww = styled.div`
 `;
 
@@ -190,13 +188,10 @@ const StyledGuaranteeIcons = styled.div`
 
 const ShopWorldwideTitle = styled.h3`
 `;
-
 const StyledSecureShop = styled.div`
 `;
-
 const SecurityBoxTitle = styled.h3`
 `;
-
 const StyledNorton = styled.div`
 `;
 
@@ -240,9 +235,7 @@ const StyledTinyImg = styled(Svg)`
 
 const StyledNortonImg = styled(Svg)`
 `;
-
 //
-
 
 const Footer = () => {
     const {
@@ -380,7 +373,6 @@ const Footer = () => {
                             </StyledSecureShop>
                         </StyledColumn4>
                     </StyledLinks>
-
                     <PolicyList>
                         <ul className="list-1">
                             <List><a href="Terms&Conditions">Terms & Conditions</a></List>
