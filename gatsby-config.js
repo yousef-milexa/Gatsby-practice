@@ -16,20 +16,13 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
     `gatsby-plugin-catch-links`,
+    'gatsby-plugin-react-svg',
     {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.READ_ONLY_TOKEN,
         preview: false,
         disableLiveReload: false,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /assets/
-        }
       },
     },
     {

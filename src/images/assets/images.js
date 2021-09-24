@@ -31,7 +31,7 @@ import calender from "./calender.svg";
 import trust from "./trustpilot-usp.svg";
 
 import hoviaBlack from "./hoviablack.svg";
-import instagramIcon from "./instagram.svg";
+import instagramIcon from "./instagram.inline.svg";
 import pinterestIcon from "./pinterest.svg";
 
 import dropDown from "./dropdown.svg";
