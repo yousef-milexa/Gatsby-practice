@@ -15,7 +15,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
-    'gatsby-plugin-react-svg',
     `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-source-datocms`,
@@ -23,6 +22,14 @@ module.exports = {
         apiToken: process.env.READ_ONLY_TOKEN,
         preview: false,
         disableLiveReload: false,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/
+        }
       },
     },
     {
