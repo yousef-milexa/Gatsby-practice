@@ -6,6 +6,7 @@ import {
     standardColours,
     minBreakpointQuery, 
     maxBreakpointQuery,
+    fontSize,
 } from '../styles';
 import { flag0, flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9,
     norton, secure2, secure3, secure4, secure5, secure6, secure7, secure8, secure9, 
@@ -144,12 +145,14 @@ const StyledComBoxTitle = styled.h3`
     margin-top: 0;
     text-align: left;
     vertical-align: top;
+    ${fontSize(10)};
 `;
 
 const StyledComBoxInfo = styled.p`
     flex-wrap: wrap;
     text-align: left;
     vertical-align: top;
+    ${fontSize(8.75)};
 `;
 
 const StyledBtnDiv = styled.div`
@@ -162,6 +165,7 @@ const StyledComBoxButton = styled.button`
     width: 264px;
     border-radius: 4px;
     cursor: pointer;
+    ${fontSize(10)};
 `;
 
 const StyledList = styled.li`
@@ -170,6 +174,7 @@ const StyledList = styled.li`
     cursor: pointer;
     margin-bottom: 16px;
     text-underline-offset: 4px;
+    ${fontSize(8.75)};
 
     a {
         color: ${standardColours.white};
@@ -177,6 +182,7 @@ const StyledList = styled.li`
 `;
 
 const StyledLinksTitle = styled.h3`
+    ${fontSize(10)};
 `;
 const StyledShopWorldWide = styled.div`
 `;
@@ -187,10 +193,12 @@ const StyledGuaranteeIcons = styled.div`
 `;
 
 const ShopWorldwideTitle = styled.h3`
+    ${fontSize(10)};
 `;
 const StyledSecureShop = styled.div`
 `;
 const SecurityBoxTitle = styled.h3`
+    ${fontSize(10)};
 `;
 const StyledNorton = styled.div`
 `;
@@ -209,6 +217,8 @@ const StyledPolicyList = styled.div`
 
 const StyledBusinessInfo = styled.p`
     margin: -16px 0 47px 0;
+    line-height: 16px;
+    ${fontSize(7.5)};
 
     p {
         color: ${standardColours.white};

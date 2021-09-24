@@ -30,18 +30,18 @@ const GlobalStyle = createGlobalStyle`
         position: relative;
         margin: 0;
         padding: 0;
-        line-height: 1.3;
         font-family: ${brandFonts.primary};
     }
 
-    button,
     h3 {
         ${brandFonts.secondary};
+        line-height: 24px;
     }
-
+    
     p,
     li {
         ${brandFonts.primary};
+        line-height: 24px;
     }
 `;
 
