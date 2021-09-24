@@ -64,7 +64,7 @@ const StyledSocial = styled.div`
     `};
 `;
 
-const StyledSocialLink = styled.div`
+const StyledSocialLink = styled.a`
 `;
 
 const StyledLinks = styled.div`
