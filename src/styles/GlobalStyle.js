@@ -1,15 +1,20 @@
 import { createGlobalStyle } from 'styled-components';
 import { brandFonts } from '../styles';
-import sofiaProBoldTTF from '../fonts/sofia-pro-bold.ttf';
-import sofiaProRegTTF from '../fonts/sofia-pro-regular.ttf';
+import sofiaProBoldTtf from '../fonts/sofia-pro-bold.ttf';
+import sofiaProRegularTtf from '../fonts/sofia-pro-regular.ttf';
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
-        font-family: 'Sofia Pro';
-            src: url('${sofiaProBoldTTF}') format('ttf'),
-                url('${sofiaProRegTTF}') format('ttf');
+        font-family: 'sofia-pro-regular';
+        src: url('${sofiaProRegularTtf}') format('truetype');
         font-display: swap;
     }
+    @font-face {
+        font-family: 'sofia-pro-bold';
+        src: url('${sofiaProBoldTtf}') format('truetype');
+        font-display: swap;
+    }
+
     *,
     *:before,
     *:after {
@@ -26,17 +31,17 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         line-height: 1.3;
-        ${brandFonts.sofiaProBodyReg};
+        font-family: ${brandFonts.primary};
     }
 
     button,
     h3 {
-        ${brandFonts.sofiaProBodyBold};
+        ${brandFonts.secondary};
     }
 
     p,
     li {
-        ${brandFonts.sofiaProBodySml};
+        ${brandFonts.primary};
     }
 `;
 

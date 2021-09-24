@@ -131,22 +131,22 @@ const StyledColumn4 = styled.div`
     `};
 `;
 
-const ComBox = styled.div`
+const StyledComBox = styled.div`
     height: 208px;
     width: 296px;
     color: ${standardColours.white};
     background: #242424;
     margin-top: 24px;
-    padding: 16px 16px 16px 16px;
+    padding: 16px;
 `;
 
-const ComBoxTitle = styled.h3`
+const StyledComBoxTitle = styled.h3`
     margin-top: 0;
     text-align: left;
     vertical-align: top;
 `;
 
-const ComBoxInfo = styled.p`
+const StyledComBoxInfo = styled.p`
     flex-wrap: wrap;
     text-align: left;
     vertical-align: top;
@@ -164,7 +164,7 @@ const StyledComBoxButton = styled.button`
     cursor: pointer;
 `;
 
-const List = styled.li`
+const StyledList = styled.li`
     list-style: none;
     padding-bottom: 8px;
     cursor: pointer;
@@ -178,7 +178,7 @@ const List = styled.li`
 
 const StyledLinksTitle = styled.h3`
 `;
-const StyledShopww = styled.div`
+const StyledShopWorldWide = styled.div`
 `;
 
 const StyledGuaranteeIcons = styled.div`
@@ -195,7 +195,7 @@ const SecurityBoxTitle = styled.h3`
 const StyledNorton = styled.div`
 `;
 
-const PolicyList = styled.div`
+const StyledPolicyList = styled.div`
     max-width: 400px;
     margin-top: 31px;
 
@@ -207,7 +207,7 @@ const PolicyList = styled.div`
     };
 `;
 
-const BusinessInfo = styled.p`
+const StyledBusinessInfo = styled.p`
     margin: -16px 0 47px 0;
 
     p {
@@ -239,9 +239,11 @@ const StyledNortonImg = styled(Svg)`
 
 const Footer = () => {
     const {
-        datoCmsSite: { siteName },
-        datoCmsFooter: { boxinfo, boxtitle, companyinfo, flagstitle, securitytitle, hovialight },
-        datoCmsSitewide: { instagramprofile, pinterestprofile },
+        datoCmsSite: {
+            globalSeo: { siteName },
+        },
+        datoCmsFooter: { boxInfo, boxTitle, companyInfo, flagsTitle, securityTitle, hoviaLight },
+        datoCmsSitewide: { instagramProfile, pinterestProfile },
     } = useStaticQuery(graphql`
         query FooterQuery {
             datoCmsSite {
@@ -250,19 +252,19 @@ const Footer = () => {
                     }
                 }
             datoCmsFooter {
-                boxinfo
-                boxtitle
-                companyinfo
-                flagstitle
-                securitytitle
-                hovialight {
-                    url
+                boxInfo
+                boxTitle
+                companyInfo
+                flagsTitle
+                securityTitle
+                hoviaLight {
                     alt
-                    }
+                    url
+                }
                 }
             datoCmsSitewide {
-                instagramprofile
-                pinterestprofile
+                instagramProfile
+                pinterestProfile
                 }
             }
         `);
@@ -275,20 +277,20 @@ const Footer = () => {
                         <StyledBrand>
                             <StyledLogo image={hoviaWhite} title={`hovia`}/>
                         </StyledBrand>
-                        {(instagramprofile || pinterestprofile) && (
+                        {(instagramProfile || pinterestProfile) && (
                             <StyledSocial>
-                                {instagramprofile && (
+                                {instagramProfile && (
                                     <StyledSocialLink
-                                        href={instagramprofile}
+                                        href={instagramProfile}
                                         target={`_blank`}
                                         rel={`noopener noreferrer`}
                                     >
                                         <StyledIcon image={instagramIcon} title={`Instagram`}/>
                                     </StyledSocialLink>
                                 )}
-                                {pinterestprofile && (
+                                {pinterestProfile && (
                                     <StyledSocialLink
-                                        href={pinterestprofile}
+                                        href={pinterestProfile}
                                         target={`_blank`}
                                         rel={`noopener noreferrer`}
                                     >
@@ -303,45 +305,45 @@ const Footer = () => {
                         {/* Column1 */}
                         <StyledColumn1>
                             <StyledTrustImg image={trustPilot} title={`trustpilot`}/>
-                            <ComBox>
-                                <ComBoxTitle>
-                                    {boxtitle}
-                                </ComBoxTitle>
-                                <ComBoxInfo>
-                                    {boxinfo}
-                                </ComBoxInfo>
+                            <StyledComBox>
+                                <StyledComBoxTitle>
+                                    {boxTitle}
+                                </StyledComBoxTitle>
+                                <StyledComBoxInfo>
+                                    {boxInfo}
+                                </StyledComBoxInfo>
                                 <StyledBtnDiv>
                                     <StyledComBoxButton><a href="learnmore">Learn more</a></StyledComBoxButton>
                                 </StyledBtnDiv>
-                            </ComBox>
+                            </StyledComBox>
                         </StyledColumn1>
                             {/* Column2 */}
                             <StyledLink>
                                 <StyledColumn2>
                                     <StyledLinksTitle>Company info</StyledLinksTitle>
                                     <ul className="list">
-                                        <List><a href="contactus">Contact us</a></List>
-                                        <List><a href="about">About</a></List>
-                                        <List><a href="blog">Blog</a></List>
+                                        <StyledList><a href="contactus">Contact us</a></StyledList>
+                                        <StyledList><a href="about">About</a></StyledList>
+                                        <StyledList><a href="blog">Blog</a></StyledList>
                                     </ul>
                                 </StyledColumn2>
                                 {/* Column3 */}
                                 <StyledColumn3>
                                     <StyledLinksTitle>Product info</StyledLinksTitle>
                                     <ul className="list">
-                                        <List><a href="Howitworks">How it works</a></List>
-                                        <List><a href="Measurement&Installation">Measurement & Installation</a></List>
-                                        <List><a href="Papertypes">Paper types</a></List>
-                                        <List><a href="Delivery&returns">Delivery & returns</a></List>
-                                        <List><a href="faq">Frequently asked questions</a></List>
-                                        <List><a href="Ordersamples">Order samples</a></List>
+                                        <StyledList><a href="Howitworks">How it works</a></StyledList>
+                                        <StyledList><a href="Measurement&Installation">Measurement & Installation</a></StyledList>
+                                        <StyledList><a href="Papertypes">Paper types</a></StyledList>
+                                        <StyledList><a href="Delivery&returns">Delivery & returns</a></StyledList>
+                                        <StyledList><a href="faq">Frequently asked questions</a></StyledList>
+                                        <StyledList><a href="Ordersamples">Order samples</a></StyledList>
                                     </ul>
                                 </StyledColumn3>
                             </StyledLink>
                         {/* Column4 */}
                         <StyledColumn4>
-                            <StyledShopww>
-                                <ShopWorldwideTitle>{flagstitle}</ShopWorldwideTitle>
+                            <StyledShopWorldWide>
+                                <ShopWorldwideTitle>{flagsTitle}</ShopWorldwideTitle>
                                 <StyledGuaranteeIcons>
                                     <StyledTinyImg image={flag0} title={`flag0`}/>
                                     <StyledTinyImg image={flag1} title={`flag1`}/>
@@ -354,9 +356,9 @@ const Footer = () => {
                                     <StyledTinyImg image={flag8} title={`flag8`}/>
                                     <StyledTinyImg image={flag9} title={`flag9`}/>
                                 </StyledGuaranteeIcons>
-                            </StyledShopww>
+                            </StyledShopWorldWide>
                             <StyledSecureShop>
-                                <SecurityBoxTitle>{securitytitle}</SecurityBoxTitle>
+                                <SecurityBoxTitle>{securityTitle}</SecurityBoxTitle>
                                     <StyledNorton>
                                         <StyledNortonImg image={norton} title={`norton`}/>
                                     </StyledNorton>
@@ -373,17 +375,17 @@ const Footer = () => {
                             </StyledSecureShop>
                         </StyledColumn4>
                     </StyledLinks>
-                    <PolicyList>
+                    <StyledPolicyList>
                         <ul className="list-1">
-                            <List><a href="Terms&Conditions">Terms & Conditions</a></List>
-                            <List><a href="Privacypolicy">Privacy policy</a></List>
-                            <List><a href="Returnspolicy">Returns policy</a></List>
+                            <StyledList><a href="Terms&Conditions">Terms & Conditions</a></StyledList>
+                            <StyledList><a href="Privacypolicy">Privacy policy</a></StyledList>
+                            <StyledList><a href="Returnspolicy">Returns policy</a></StyledList>
                         </ul>
-                    </PolicyList>
+                    </StyledPolicyList>
 
-                    <BusinessInfo>
-                        &copy; {siteName} {new Date().getFullYear()}. {companyinfo}
-                    </BusinessInfo>
+                    <StyledBusinessInfo>
+                        &copy; {siteName} {new Date().getFullYear()}. {companyInfo}
+                    </StyledBusinessInfo>
                 </StyledInner>
             </Container>
         </StyledFooter>
