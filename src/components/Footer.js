@@ -9,19 +9,19 @@ import {
     fontSize,
 } from '../styles';
 import instagramIcon from "../images/assets/instagram.inline.svg";
-import pinterestIcon from "../images/assets/pinterest.svg";
+import pinterestIcon from "../images/assets/pinterest.inline.svg";
 import hoviaWhite from "../images/assets/hoviawhite.svg";
 import trustPilot from "../images/assets/trustpilot.svg";
-import flag0 from "../images/assets/flag-0.svg";
-import flag1 from "../images/assets/flag-1.svg";
-import flag2 from "../images/assets/flag-2.svg";
-import flag3 from "../images/assets/flag-3.svg";
-import flag4 from "../images/assets/flag-4.svg";
-import flag5 from "../images/assets/flag-5.svg";
-import flag6 from "../images/assets/flag-6.svg";
-import flag7 from "../images/assets/flag-7.svg";
-import flag8 from "../images/assets/flag-8.svg";
-import flag9 from "../images/assets/flag-9.svg";
+import gb from "../images/assets/gb.inline.svg";
+import it from "../images/assets/it.inline.svg";
+import nz from "../images/assets/nz.inline.svg";
+import ie from "../images/assets/ie.inline.svg";
+import de from "../images/assets/de.inline.svg";
+import aus from "../images/assets/aus.inline.svg";
+import us from "../images/assets/us.inline.svg";
+import ca from "../images/assets/ca.inline.svg";
+import es from "../images/assets/es.inline.svg";
+import fr from "../images/assets/fr.inline.svg";
 import norton from "../images/assets/norton.svg";
 import secure2 from "../images/assets/secure-2.svg";
 import secure3 from "../images/assets/secure-3.svg";
@@ -375,16 +375,16 @@ const Footer = () => {
                             <StyledShopWorldWide>
                                 <ShopWorldwideTitle>{flagsTitle}</ShopWorldwideTitle>
                                 <StyledGuaranteeIcons>
-                                    <StyledTinyImg image={flag0} title={`flag0`}/>
-                                    <StyledTinyImg image={flag1} title={`flag1`}/>
-                                    <StyledTinyImg image={flag2} title={`flag2`}/>
-                                    <StyledTinyImg image={flag3} title={`flag3`}/>
-                                    <StyledTinyImg image={flag4} title={`flag4`}/>
-                                    <StyledTinyImg image={flag5} title={`flag5`}/>
-                                    <StyledTinyImg image={flag6} title={`flag6`}/>
-                                    <StyledTinyImg image={flag7} title={`flag7`}/>
-                                    <StyledTinyImg image={flag8} title={`flag8`}/>
-                                    <StyledTinyImg image={flag9} title={`flag9`}/>
+                                    <StyledTinyImg image={gb} title={`Great Britain flag`}/>
+                                    <StyledTinyImg image={it} title={`Italy flag`}/>
+                                    <StyledTinyImg image={nz} title={`New Zealand flag`}/>
+                                    <StyledTinyImg image={ie} title={`Ireland flag`}/>
+                                    <StyledTinyImg image={de} title={`Germany flag`}/>
+                                    <StyledTinyImg image={aus} title={`Australia flag`}/>
+                                    <StyledTinyImg image={us} title={`USA flag`}/>
+                                    <StyledTinyImg image={ca} title={`Canada flag`}/>
+                                    <StyledTinyImg image={es} title={`Spain flag`}/>
+                                    <StyledTinyImg image={fr} title={`France flag`}/>
                                 </StyledGuaranteeIcons>
                             </StyledShopWorldWide>
                             <StyledSecureShop>
