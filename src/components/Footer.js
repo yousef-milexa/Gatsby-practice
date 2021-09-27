@@ -12,25 +12,25 @@ import instagramIcon from "../images/assets/instagram.inline.svg";
 import pinterestIcon from "../images/assets/pinterest.inline.svg";
 import hoviaWhite from "../images/assets/hoviawhite.svg";
 import trustPilot from "../images/assets/trustpilot.svg";
-import gb from "../images/assets/gb.inline.svg";
-import it from "../images/assets/it.inline.svg";
-import nz from "../images/assets/nz.inline.svg";
-import ie from "../images/assets/ie.inline.svg";
-import de from "../images/assets/de.inline.svg";
-import aus from "../images/assets/aus.inline.svg";
-import us from "../images/assets/us.inline.svg";
-import ca from "../images/assets/ca.inline.svg";
-import es from "../images/assets/es.inline.svg";
-import fr from "../images/assets/fr.inline.svg";
-import norton from "../images/assets/norton.svg";
-import secure2 from "../images/assets/secure-2.svg";
-import secure3 from "../images/assets/secure-3.svg";
-import secure4 from "../images/assets/secure-4.svg";
-import secure5 from "../images/assets/secure-5.svg";
-import secure6 from "../images/assets/secure-6.svg";
-import secure7 from "../images/assets/secure-7.svg";
-import secure8 from "../images/assets/secure-8.svg";
-import secure9 from "../images/assets/secure-9.svg";
+import gb from "../images/png/gb.png";
+import it from "../images/png/it.png";
+import nz from "../images/png/nz.png";
+import ie from "../images/png/ir.png";
+import de from "../images/png/de.png";
+import aus from "../images/png/au.png";
+import us from "../images/png/us.png";
+import ca from "../images/png/ca.png";
+import es from "../images/png/es.png";
+import fr from "../images/png/fr.png";
+import norton from "../images/png/norton.png";
+import visa from "../images/png/visa.png";
+import americanExpress from "../images/png/ae.png";
+import masterCard from "../images/png/mastercard.png";
+import payPal from "../images/png/paypal.png";
+import discover from "../images/png/discover.png";
+import jcb from "../images/png/jcb.png";
+import maestro from "../images/png/maestro.png";
+import unionPay from "../images/png/unionpay.png";
 import { useStaticQuery, graphql } from 'gatsby';
 
 const StyledFooter = styled.footer`
@@ -256,11 +256,11 @@ const StyledTrustImg = styled(Svg)`
     margin-top: 31px;
 `;
 
-const StyledTinyImg = styled(Svg)`
+const StyledTinyImg = styled.img`
     margin-right: 8px;
 `;
 
-const StyledNortonImg = styled(Svg)`
+const StyledNortonImg = styled.img`
 `;
 //
 
@@ -372,32 +372,32 @@ const Footer = () => {
                             <StyledShopWorldWide>
                                 <ShopWorldwideTitle>{flagsTitle}</ShopWorldwideTitle>
                                 <StyledGuaranteeIcons>
-                                    <StyledTinyImg image={gb} title={`Great Britain flag`}/>
-                                    <StyledTinyImg image={it} title={`Italy flag`}/>
-                                    <StyledTinyImg image={nz} title={`New Zealand flag`}/>
-                                    <StyledTinyImg image={ie} title={`Ireland flag`}/>
-                                    <StyledTinyImg image={de} title={`Germany flag`}/>
-                                    <StyledTinyImg image={aus} title={`Australia flag`}/>
-                                    <StyledTinyImg image={us} title={`USA flag`}/>
-                                    <StyledTinyImg image={ca} title={`Canada flag`}/>
-                                    <StyledTinyImg image={es} title={`Spain flag`}/>
-                                    <StyledTinyImg image={fr} title={`France flag`}/>
+                                    <StyledTinyImg src={gb} alt='Great Britain flag'/>
+                                    <StyledTinyImg src={it} alt='Italy flag'/>
+                                    <StyledTinyImg src={nz} alt='New Zealand flag'/>
+                                    <StyledTinyImg src={ie} alt='Ireland flag'/>
+                                    <StyledTinyImg src={de} alt='Germany flag'/>
+                                    <StyledTinyImg src={aus} alt='Australia flag'/>
+                                    <StyledTinyImg src={us} alt='USA flag'/>
+                                    <StyledTinyImg src={ca} alt='Canada flag'/>
+                                    <StyledTinyImg src={es} alt='Spain flag'/>
+                                    <StyledTinyImg src={fr} alt='France flag'/>
                                 </StyledGuaranteeIcons>
                             </StyledShopWorldWide>
                             <StyledSecureShop>
                                 <SecurityBoxTitle>{securityTitle}</SecurityBoxTitle>
                                     <StyledNorton>
-                                        <StyledNortonImg image={norton} title={`norton`}/>
+                                        <StyledNortonImg src={norton} alt='norton'/>
                                     </StyledNorton>
                                 <StyledGuaranteeIcons>
-                                    <StyledTinyImg image={secure2} title={`secure2`}/>
-                                    <StyledTinyImg image={secure3} title={`secure3`}/>
-                                    <StyledTinyImg image={secure4} title={`secure4`}/>
-                                    <StyledTinyImg image={secure5} title={`secure5`}/>
-                                    <StyledTinyImg image={secure6} title={`secure6`}/>
-                                    <StyledTinyImg image={secure7} title={`secure7`}/>
-                                    <StyledTinyImg image={secure8} title={`secure8`}/>
-                                    <StyledTinyImg image={secure9} title={`secure9`}/>
+                                    <StyledTinyImg src={visa} alt='secure2'/>
+                                    <StyledTinyImg src={americanExpress} alt='secure3'/>
+                                    <StyledTinyImg src={masterCard} alt='secure4'/>
+                                    <StyledTinyImg src={payPal} alt='secure5'/>
+                                    <StyledTinyImg src={discover} alt='secure6'/>
+                                    <StyledTinyImg src={jcb} alt='secure7'/>
+                                    <StyledTinyImg src={maestro} alt='secure8'/>
+                                    <StyledTinyImg src={unionPay} alt='secure9'/>
                                 </StyledGuaranteeIcons>
                             </StyledSecureShop>
                         </StyledColumn4>
