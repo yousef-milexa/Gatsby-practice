@@ -1,4 +1,4 @@
 export const brandFonts = {
-    primary: "'sofia-pro-regular'",
-    secondary: "'sofia-pro-bold'",
+    primary: "'Sofia Pro Regular'",
+    secondary: "'Sofia Pro Bold'",
     };

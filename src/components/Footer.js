@@ -239,10 +239,7 @@ const StyledBusinessInfo = styled.p`
     margin: -16px 0 47px 0;
     line-height: 16px;
     ${fontSize(7.5)};
-
-    p {
-        color: ${standardColours.white};
-    };
+    color: ${standardColours.white};
 `;
 
 // images

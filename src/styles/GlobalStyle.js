@@ -5,12 +5,12 @@ import sofiaProRegularTtf from '../fonts/sofia-pro-regular.ttf';
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
-        font-family: 'sofia-pro-regular';
+        font-family: 'Sofia Pro Regular';
         src: url('${sofiaProRegularTtf}') format('truetype');
         font-display: swap;
     }
     @font-face {
-        font-family: 'sofia-pro-bold';
+        font-family: 'Sofia Pro Bold';
         src: url('${sofiaProBoldTtf}') format('truetype');
         font-display: swap;
     }
