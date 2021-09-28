@@ -8,6 +8,7 @@ import {
     maxBreakpointQuery,
     fontSize,
 } from '../styles';
+import Logo from "./ui/Logo";
 import instagramIcon from "../images/assets/instagram.inline.svg";
 import pinterestIcon from "../images/assets/pinterest.inline.svg";
 import hoviaWhite from "../images/assets/hoviawhite.svg";
@@ -302,7 +303,8 @@ const Footer = () => {
                 <StyledInner>
                     <StyledTop>
                         <StyledBrand>
-                            <StyledLogo image={hoviaWhite} title={`hovia`}/>
+                            {/* <StyledLogo image={hoviaWhite} title={`hovia`}/> */}
+                            <Logo alt={true}/>
                         </StyledBrand>
                         {(instagramProfile || pinterestProfile) && (
                             <StyledSocial>
