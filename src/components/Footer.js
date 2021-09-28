@@ -11,7 +11,6 @@ import {
 import Logo from "./ui/Logo";
 import instagramIcon from "../images/assets/instagram.inline.svg";
 import pinterestIcon from "../images/assets/pinterest.inline.svg";
-import hoviaWhite from "../images/assets/hoviawhite.svg";
 import trustPilot from "../images/assets/trustpilot.svg";
 import gb from "../images/png/gb.png";
 import it from "../images/png/it.png";
@@ -303,7 +302,6 @@ const Footer = () => {
                 <StyledInner>
                     <StyledTop>
                         <StyledBrand>
-                            {/* <StyledLogo image={hoviaWhite} title={`hovia`}/> */}
                             <Logo alt={true}/>
                         </StyledBrand>
                         {(instagramProfile || pinterestProfile) && (
