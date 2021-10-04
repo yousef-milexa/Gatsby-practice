@@ -5,6 +5,7 @@ import { Spring } from 'react-spring'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
+import GlobalStyle from '../styles/GlobalStyle'
 
 import Header from './header'
 import Archive from './archive'
@@ -51,6 +52,7 @@ const Layout = ({ children, location }) => (
         >
           <html lang="en" />
         </Helmet>
+        <GlobalStyle/>
         <Header siteTitle={data.site.siteMetadata.title} />
         <Spring
           from={{ height: location.pathname === '/' ? 100 : 200 }}

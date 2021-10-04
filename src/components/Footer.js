@@ -1,17 +1,37 @@
 import React from 'react';
-import { Container } from "./ui/Container"
+import { Container, Svg } from "./ui"
 import styled from "styled-components";
 import { 
     brandColours,
     standardColours,
     minBreakpointQuery, 
     maxBreakpointQuery,
+    fontSize,
 } from '../styles';
-import { flag0, flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9,
-    secure1, secure2, secure3, secure4, secure5, secure6, secure7, secure8, secure9, 
-    HoviaWhite, Insta, Pint, TrustPilot } from "../images/assets/images";
-import { useStaticQuery } from 'gatsby';
-
+import Logo from "./ui/Logo";
+import instagramIcon from "../images/assets/instagram.inline.svg";
+import pinterestIcon from "../images/assets/pinterest.inline.svg";
+import trustPilot from "../images/assets/trustpilot.svg";
+import gb from "../images/png/gb.png";
+import it from "../images/png/it.png";
+import nz from "../images/png/nz.png";
+import ie from "../images/png/ir.png";
+import de from "../images/png/de.png";
+import aus from "../images/png/au.png";
+import us from "../images/png/us.png";
+import ca from "../images/png/ca.png";
+import es from "../images/png/es.png";
+import fr from "../images/png/fr.png";
+import norton from "../images/png/norton.png";
+import visa from "../images/png/visa.png";
+import americanExpress from "../images/png/ae.png";
+import masterCard from "../images/png/mastercard.png";
+import payPal from "../images/png/paypal.png";
+import discover from "../images/png/discover.png";
+import jcb from "../images/png/jcb.png";
+import maestro from "../images/png/maestro.png";
+import unionPay from "../images/png/unionpay.png";
+import { useStaticQuery, graphql } from 'gatsby';
 
 const StyledFooter = styled.footer`
     background-color: ${brandColours.neutral[500]};
@@ -31,10 +51,14 @@ const StyledTop = styled.div`
     display: block;
     margin: auto;
 
-    ${minBreakpointQuery.large`
+    ${minBreakpointQuery.tiny`
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        margin: unset;
     `};
+`;
+
+const StyledBrand = styled.div`
 `;
 
 const StyledLine = styled.hr`
@@ -49,62 +73,58 @@ const StyledLine = styled.hr`
 const StyledSocial = styled.div`
     display: flex;
     justify-content: center;
+    gap: 16px;
     margin-top: 32px;
     white-space: nowrap;
 
-    ${minBreakpointQuery.large`
+    ${minBreakpointQuery.tiny`
         display: flex;
         justify-content: flex-end;
+        margin-top: 0;
     `};
 `;
 
+const StyledSocialLink = styled.a`
+`;
+
 const StyledLinks = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    
-    ${minBreakpointQuery.large`
-        display: flex;
-        justify-content: space-between;
-    `};
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    ul {
+        padding-left: 0;
+    }
 
     ${maxBreakpointQuery.large`
-        justify-content: space-evenly;
         align-content: center;
         flex-wrap: wrap;
     `};
 
     ${maxBreakpointQuery.tiny`
-        grid-template-columns: 1fr;
+        gap: 10px;
     `};
 `;
 
 const StyledLink = styled.div`
-    ${maxBreakpointQuery.tiny`
-        grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 100px;
+    ${maxBreakpointQuery.large`
+        width: 100%
+    `};
+
+    ${maxBreakpointQuery.tsmall`
+        gap: 10px;
     `};
 `;
 
 const StyledColumn1 = styled.div`
-    img {
-        margin-top: 31px;
-    };
-
-    p { 
-        margin-top: 8px;
-    };
-
     a {
         color: ${brandColours.neutral[500]};
         text-decoration: none;
-    };
-
-    button {
-        height: 56px;
-        width: 264px;
-        border-radius: 4px;
-        margin-top: 16px;
-        cursor: pointer;
     };
 
     ${maxBreakpointQuery.large`
@@ -125,186 +145,274 @@ const StyledColumn3 = styled.div`
 `;
 
 const StyledColumn4 = styled.div`
+    width: 230px;
+    margin-right: 40px;
     ${maxBreakpointQuery.large`
         order: 4;
     `};
 `;
 
-const ComBox = styled.div`
+const StyledComBox = styled.div`
     height: 208px;
     width: 296px;
     color: ${standardColours.white};
     background: #242424;
     margin-top: 24px;
-    padding: 16px 16px 16px 16px;
+    padding: 16px;
 `;
 
-const List = styled.li`
+const StyledComBoxTitle = styled.h3`
+    margin-top: 0;
+    text-align: left;
+    vertical-align: top;
+    ${fontSize(10)};
+`;
+
+const StyledComBoxInfo = styled.p`
+    flex-wrap: wrap;
+    text-align: left;
+    vertical-align: top;
+    ${fontSize(8.75)};
+`;
+
+const StyledBtnDiv = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+const StyledComBoxButton = styled.button`
+    height: 56px;
+    width: 264px;
+    border-radius: 4px;
+    cursor: pointer;
+    ${fontSize(10)};
+`;
+
+const StyledList = styled.li`
     list-style: none;
     padding-bottom: 8px;
     cursor: pointer;
+    margin-bottom: 16px;
+    text-underline-offset: 4px;
+    ${fontSize(8.75)};
 
     a {
         color: ${standardColours.white};
     };
 `;
 
-const PolicyList = styled.div`
+const StyledLinksTitle = styled.h3`
+    ${fontSize(10)};
+`;
+const StyledShopWorldWide = styled.div`
+`;
+
+const StyledGuaranteeIcons = styled.div`
+    display: table;
+    width: 100%;
+`;
+
+const ShopWorldwideTitle = styled.h3`
+    ${fontSize(10)};
+`;
+const StyledSecureShop = styled.div`
+`;
+const SecurityBoxTitle = styled.h3`
+    ${fontSize(10)};
+`;
+const StyledNorton = styled.div`
+`;
+
+const StyledPolicyList = styled.div`
     max-width: 400px;
     margin-top: 31px;
 
     ul {
         display: flex;
         flex-wrap: wrap;
-        ${minBreakpointQuery.large`
-            display: flex;
-            justify-content: space-between;
-        `};
-    };
-
-    li {
-        list-style: none;
-    };
-
-    a {
-        white-space: nowrap;
-        text-decoration: underline;
-        gap: 20px;
-        color: ${standardColours.white};
+        padding-left: 0;
+        justify-content: space-between;
     };
 `;
 
-const BusinessInfo = styled.div`
+const StyledBusinessInfo = styled.p`
     margin: -16px 0 47px 0;
-
-    p {
-        color: ${standardColours.white};
-    };
+    line-height: 16px;
+    ${fontSize(7.5)};
+    color: ${standardColours.white};
 `;
+
+// images
+const StyledLogo = styled(Svg)`
+`;
+
+const StyledIcon = styled(Svg)`
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+`;
+
+const StyledTrustImg = styled(Svg)`
+    margin-top: 31px;
+`;
+
+const StyledTinyImg = styled.img`
+    margin-right: 8px;
+`;
+
+const StyledNortonImg = styled.img`
+`;
+//
 
 const Footer = () => {
-    // const {
-    //     datoCmsSite: {
-    //         globalSeo: { siteName },
-    //     },
-    //     datoCmsFooter: { boxinfo, boxtitle, companyinfo },
-    //     datoCmsContactInformation: { instagramLink, pinterestLink },
-    //     } = useStaticQuery(graphql`
-    //     query FooterQuery {
-    //         datoCmsSite {
-    //             globalSeo {
-    //             siteName
-    //         }
-    //         }
-    //         datoCmsFooter {
-    //             boxinfo
-    //             boxtitle
-    //             companyinfo
-    //         }
-    //         datoCmsSitewide {
-    //             instagramlink
-    //             pinterestlink
-    //         }
-    //     }
-    //     `);
+    const {
+        datoCmsSite: {
+            globalSeo: { siteName },
+        },
+        datoCmsFooter: { boxInfo, boxTitle, companyInfo, flagsTitle, securityTitle, hoviaLight },
+        datoCmsSitewide: { instagramProfile, pinterestProfile },
+    } = useStaticQuery(graphql`
+        query FooterQuery {
+            datoCmsSite {
+                globalSeo {
+                    siteName
+                    }
+                }
+            datoCmsFooter {
+                boxInfo
+                boxTitle
+                companyInfo
+                flagsTitle
+                securityTitle
+                hoviaLight {
+                    alt
+                    url
+                }
+                }
+            datoCmsSitewide {
+                instagramProfile
+                pinterestProfile
+                }
+            }
+        `);
 
     return (
         <StyledFooter>
             <Container>
                 <StyledInner>
                     <StyledTop>
-                        <div className="brand-logo">
-                            <img className="hovia-logo" src={HoviaWhite} alt="hovia"/>
-                        </div>
-                        <StyledSocial>
-                            <img className="insta" src={Insta} alt="Instagram"/>
-                            <img className="pint" src={Pint} alt="Pinterest"/>
-                        </StyledSocial>
+                        <StyledBrand>
+                            <Logo alt={true}/>
+                        </StyledBrand>
+                        {(instagramProfile || pinterestProfile) && (
+                            <StyledSocial>
+                                {instagramProfile && (
+                                    <StyledSocialLink
+                                        href={instagramProfile}
+                                        target={`_blank`}
+                                        rel={`noopener noreferrer`}
+                                    >
+                                        <StyledIcon image={instagramIcon} title={`Instagram`}/>
+                                    </StyledSocialLink>
+                                )}
+                                {pinterestProfile && (
+                                    <StyledSocialLink
+                                        href={pinterestProfile}
+                                        target={`_blank`}
+                                        rel={`noopener noreferrer`}
+                                    >
+                                        <StyledIcon image={pinterestIcon} title={`Pinterest`}/>
+                                    </StyledSocialLink>
+                                )}
+                            </StyledSocial>
+                        )}
                     </StyledTop>
                     <StyledLine />
                     <StyledLinks>
                         {/* Column1 */}
                         <StyledColumn1>
-                            <img src={TrustPilot} alt="trustpilot"/>
-                            <ComBox>
-                                <h3>Commercial Wallpaper</h3>
-                                <p>We enrich the spaces where people live, work and play, 
-                                by providing modern and industry-leading wallpaper designs.</p>
-                                <button className="learn-more-btn"><a href="learnmore">Learn more</a></button>
-                            </ComBox>
+                            <StyledTrustImg image={trustPilot} title={`trustpilot`}/>
+                            <StyledComBox>
+                                <StyledComBoxTitle>
+                                    {boxTitle}
+                                </StyledComBoxTitle>
+                                <StyledComBoxInfo>
+                                    {boxInfo}
+                                </StyledComBoxInfo>
+                                <StyledBtnDiv>
+                                    <StyledComBoxButton><a href="learnmore">Learn more</a></StyledComBoxButton>
+                                </StyledBtnDiv>
+                            </StyledComBox>
                         </StyledColumn1>
-                        <StyledLink>
                             {/* Column2 */}
-                            <StyledColumn2>
-                                <h3 className="footer-titles">Company info</h3>
-                                <ul className="list">
-                                    <List><a href="contactus">Contact us</a></List>
-                                    <List><a href="about">About</a></List>
-                                    <List><a href="blog">Blog</a></List>
-                                </ul>
-                            </StyledColumn2>
-                            {/* Column3 */}
-                            <StyledColumn3>
-                                <h3 className="footer-titles">Product info</h3>
-                                <ul className="list">
-                                    <List><a href="Howitworks">How it works</a></List>
-                                    <List><a href="Measurement&Installation">Measurement & Installation</a></List>
-                                    <List><a href="Papertypes">Paper types</a></List>
-                                    <List><a href="Delivery&returns">Delivery & returns</a></List>
-                                    <List><a href="faq">Frequently asked questions</a></List>
-                                    <List><a href="Ordersamples">Order samples</a></List>
-                                </ul>
-                            </StyledColumn3>
-                        </StyledLink>
+                            <StyledLink>
+                                <StyledColumn2>
+                                    <StyledLinksTitle>Company info</StyledLinksTitle>
+                                    <ul className="list">
+                                        <StyledList><a href="contactus">Contact us</a></StyledList>
+                                        <StyledList><a href="about">About</a></StyledList>
+                                        <StyledList><a href="blog">Blog</a></StyledList>
+                                    </ul>
+                                </StyledColumn2>
+                                {/* Column3 */}
+                                <StyledColumn3>
+                                    <StyledLinksTitle>Product info</StyledLinksTitle>
+                                    <ul className="list">
+                                        <StyledList><a href="Howitworks">How it works</a></StyledList>
+                                        <StyledList><a href="Measurement&Installation">Measurement & Installation</a></StyledList>
+                                        <StyledList><a href="Papertypes">Paper types</a></StyledList>
+                                        <StyledList><a href="Delivery&returns">Delivery & returns</a></StyledList>
+                                        <StyledList><a href="faq">Frequently asked questions</a></StyledList>
+                                        <StyledList><a href="Ordersamples">Order samples</a></StyledList>
+                                    </ul>
+                                </StyledColumn3>
+                            </StyledLink>
                         {/* Column4 */}
                         <StyledColumn4>
-                            <div className="shop-worldwide">
-                                <h3 className="footer-titles">Shop worldwide</h3>
-                                <div className="flag-box">
-                                    <img src={flag0} alt="flag0"/>
-                                    <img src={flag1} alt="flag1"/>
-                                    <img src={flag2} alt="flag2"/>
-                                    <img src={flag3} alt="flag3"/>
-                                    <img src={flag4} alt="flag4"/>
-                                    <img src={flag5} alt="flag5"/>
-                                    <img src={flag6} alt="flag6"/>
-                                    <img src={flag7} alt="flag7"/>
-                                    <img src={flag8} alt="flag8"/>
-                                    <img src={flag9} alt="flag9"/>
-                                </div>
-                            </div>
-                            <div className="secure-shopping">
-                                <h3 className="footer-titles">Secure shopping</h3>
-                                    <div className="norton-space">
-                                        <img className="norton" src={secure1} alt="secure1"/>
-                                    </div>
-                                <div className="security-box">
-                                    <img src={secure2} alt="secure2"/>
-                                    <img src={secure3} alt="secure3"/>
-                                    <img src={secure4} alt="secure4"/>
-                                    <img src={secure5} alt="secure5"/>
-                                    <img src={secure6} alt="secure6"/>
-                                    <img src={secure7} alt="secure7"/>
-                                    <img src={secure8} alt="secure8"/>
-                                    <img src={secure9} alt="secure9"/>
-                                </div>
-                            </div>
+                            <StyledShopWorldWide>
+                                <ShopWorldwideTitle>{flagsTitle}</ShopWorldwideTitle>
+                                <StyledGuaranteeIcons>
+                                    <StyledTinyImg src={gb} alt='Great Britain flag'/>
+                                    <StyledTinyImg src={it} alt='Italy flag'/>
+                                    <StyledTinyImg src={nz} alt='New Zealand flag'/>
+                                    <StyledTinyImg src={ie} alt='Ireland flag'/>
+                                    <StyledTinyImg src={de} alt='Germany flag'/>
+                                    <StyledTinyImg src={aus} alt='Australia flag'/>
+                                    <StyledTinyImg src={us} alt='USA flag'/>
+                                    <StyledTinyImg src={ca} alt='Canada flag'/>
+                                    <StyledTinyImg src={es} alt='Spain flag'/>
+                                    <StyledTinyImg src={fr} alt='France flag'/>
+                                </StyledGuaranteeIcons>
+                            </StyledShopWorldWide>
+                            <StyledSecureShop>
+                                <SecurityBoxTitle>{securityTitle}</SecurityBoxTitle>
+                                    <StyledNorton>
+                                        <StyledNortonImg src={norton} alt='norton'/>
+                                    </StyledNorton>
+                                <StyledGuaranteeIcons>
+                                    <StyledTinyImg src={visa} alt='secure2'/>
+                                    <StyledTinyImg src={americanExpress} alt='secure3'/>
+                                    <StyledTinyImg src={masterCard} alt='secure4'/>
+                                    <StyledTinyImg src={payPal} alt='secure5'/>
+                                    <StyledTinyImg src={discover} alt='secure6'/>
+                                    <StyledTinyImg src={jcb} alt='secure7'/>
+                                    <StyledTinyImg src={maestro} alt='secure8'/>
+                                    <StyledTinyImg src={unionPay} alt='secure9'/>
+                                </StyledGuaranteeIcons>
+                            </StyledSecureShop>
                         </StyledColumn4>
                     </StyledLinks>
-
-                    <PolicyList>
+                    <StyledPolicyList>
                         <ul className="list-1">
-                            <li><a href="Terms&Conditions">Terms & Conditions</a></li>
-                            <li><a href="Privacypolicy">Privacy policy</a></li>
-                            <li><a href="Returnspolicy">Returns policy</a></li>
+                            <StyledList><a href="Terms&Conditions">Terms & Conditions</a></StyledList>
+                            <StyledList><a href="Privacypolicy">Privacy policy</a></StyledList>
+                            <StyledList><a href="Returnspolicy">Returns policy</a></StyledList>
                         </ul>
-                    </PolicyList>
+                    </StyledPolicyList>
 
-                    <BusinessInfo>
-                        <p>
-                        &copy; Hovia {new Date().getFullYear()}. 43 Bridgewater Street, Liverpool, Merseyside, England, L1 0AR, Registered in England Company Number: 07473316
-                        </p>
-                    </BusinessInfo>
+                    <StyledBusinessInfo>
+                        &copy; {siteName} {new Date().getFullYear()}. {companyInfo}
+                    </StyledBusinessInfo>
                 </StyledInner>
             </Container>
         </StyledFooter>

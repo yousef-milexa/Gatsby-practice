@@ -4,8 +4,8 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Level Up Blog',
-    description: 'A new blog!',
+    title: 'Hovia',
+    description: 'Hovia site',
     siteUrl: 'https://vibrant-poincare-f9e451.netlify.com',
   },
   plugins: [
@@ -15,6 +15,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
+    `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-source-datocms`,
       options: {
@@ -22,6 +23,14 @@ module.exports = {
         preview: false,
         disableLiveReload: false,
       },
+    },
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: /assets/
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
